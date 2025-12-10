@@ -69,3 +69,4 @@ if __name__ == "__main__":
         pred_val = f"{final_output[i][0]:.4f}"
         print(f"{str(X[i]):<15} {str(y[i]):<10} {pred_val:<15}")
         
+
