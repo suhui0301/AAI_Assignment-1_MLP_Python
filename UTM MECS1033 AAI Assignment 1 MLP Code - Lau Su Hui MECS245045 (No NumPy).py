@@ -1,26 +1,32 @@
 import random
 import math
 
-
+# Activation function and its derivative
 def sigmoid(x):
+    """Sigmoid activation function to squash input between 0 and 1."""
     if x < -700: return 0
     if x > 700: return 1
     return 1 / (1 + math.exp(-x))
 
 
 def sigmoid_derivative(output):
+    """Derivative of sigmoid function used for backpropagation."""
     return output * (1 - output)
 
 
 class MLP:
+    # Initialize network parameters
     def __init__(self, input_size, hidden_size, output_size, learning_rate=0.5):
-        self.learning_rate = learning_rate
+        """Initialize weights and biases for the network."""
+        self.learning_rate = learning_rate # Learning rate
         self.weights_input_hidden = [[random.uniform(-1, 1) for _ in range(hidden_size)] for _ in range(input_size)]
         self.weights_hidden_output = [[random.uniform(-1, 1) for _ in range(output_size)] for _ in range(hidden_size)]
         self.bias_hidden = [0.0] * hidden_size
         self.bias_output = [0.0] * output_size
 
+    # Forward Propagation
     def forward(self, inputs):
+        """Calculate outputs by passing inputs through the network."""
         self.hidden_inputs = [0.0] * len(self.bias_hidden)
         self.hidden_outputs = [0.0] * len(self.bias_hidden)
 
@@ -41,7 +47,9 @@ class MLP:
 
         return self.final_outputs
 
+    # Backpropagation (Training)
     def train(self, inputs, expected_output):
+        """Adjust weights and biases based on the error."""
         output = self.forward(inputs)
 
         output_deltas = [0.0] * len(output)
@@ -68,10 +76,12 @@ class MLP:
 
         for k in range(len(self.bias_output)):
             self.bias_output[k] += self.learning_rate * output_deltas[k]
+            
         for j in range(len(self.bias_hidden)):
             self.bias_hidden[j] += self.learning_rate * hidden_deltas[j]
 
 
+# Main Execution
 if __name__ == "__main__":
     dataset = [
         ([0, 0], [0]),
