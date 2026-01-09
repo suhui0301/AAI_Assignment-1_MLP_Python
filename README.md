@@ -53,7 +53,9 @@ This repository contains the complete implementation and documentation for the M
 ## 🚀 How to Run
 
 ### 1. Execute the Script
-Ensure you have Python installed. No external dependencies are required. Open your terminal and run:
+* Ensure you have Python installed.
+* No external dependencies are required.
+* Open your terminal and run:
 `python "UTM MECS1033 AAI Assignment 1 MLP Code - Lau Su Hui MECS245045 (No NumPy).py"`
 
 ---
