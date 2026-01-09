@@ -3,14 +3,14 @@ import math
 
 # Activation function and its derivative
 def sigmoid(x):
-    """Sigmoid activation function to squash input between 0 and 1."""
+    # Sigmoid activation function to squash input between 0 and 1.
     if x < -700: return 0
     if x > 700: return 1
     return 1 / (1 + math.exp(-x))
 
 
 def sigmoid_derivative(output):
-    """Derivative of sigmoid function used for backpropagation."""
+    # Derivative of sigmoid function used for backpropagation.
     return output * (1 - output)
 
 
@@ -26,7 +26,7 @@ class MLP:
 
     # Forward Propagation
     def forward(self, inputs):
-        """Calculate outputs by passing inputs through the network."""
+        # Calculate outputs by passing inputs through the network.
         self.hidden_inputs = [0.0] * len(self.bias_hidden)
         self.hidden_outputs = [0.0] * len(self.bias_hidden)
 
@@ -49,7 +49,7 @@ class MLP:
 
     # Backpropagation (Training)
     def train(self, inputs, expected_output):
-        """Adjust weights and biases based on the error."""
+        # Adjust weights and biases based on the error.
         output = self.forward(inputs)
 
         output_deltas = [0.0] * len(output)
@@ -120,3 +120,4 @@ if __name__ == "__main__":
         rounded = round(prediction)
         print(f"{str(inputs):<15} | {expected[0]:<8} | {prediction:.5f} ({rounded})")
     print("-" * 35)
+
