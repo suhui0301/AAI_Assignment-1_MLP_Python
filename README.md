@@ -1,7 +1,7 @@
 # 🧠 Multi-Layer Perceptron (MLP): XOR Logic Implementation
 
 **Description:**
-An Advanced Artificial Intelligence assignment focused on **Developing a MLP from Scratch**. This assignment serves as a technical demonstration of solving non-linear classification problems (XOR Gate) using a custom-built neural network architecture without the aid of external libraries like NumPy or TensorFlow.
+An Advanced Artificial Intelligence assignment focused on **Developing an MLP from Scratch** in Python. MLP is a custom-built neural network architecture and acts as a virtual XOR gate. This assignment serves as a technical demonstration of solving non-linear classification problems by using and training the MLP without the aid of external libraries like NumPy or TensorFlow.
 
 ---
 
