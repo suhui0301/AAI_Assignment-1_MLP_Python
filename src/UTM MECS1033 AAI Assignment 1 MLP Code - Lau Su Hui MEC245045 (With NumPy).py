@@ -5,11 +5,11 @@ np.random.seed(1)
 
 # Activation function and its derivative
 def sigmoid(x):
-    """Sigmoid activation function to squash input between 0 and 1."""
+    # Sigmoid activation function to squash input between 0 and 1.
     return 1 / (1 + np.exp(-x))
 
 def sigmoid_derivative(x):
-    """Derivative of sigmoid function used for backpropagation."""
+    # Derivative of sigmoid function used for backpropagation.
     return x * (1 - x)
 
 class MLP:
@@ -24,7 +24,7 @@ class MLP:
 
     # Forward Propagation
     def forward(self, X):
-        """Calculate outputs by passing inputs through the network."""
+        # Calculate outputs by passing inputs through the network.
         self.hidden_input = np.dot(X, self.weights_input_hidden) + self.bias_hidden
         self.hidden_output = sigmoid(self.hidden_input)
         self.final_input = np.dot(self.hidden_output, self.weights_hidden_output) + self.bias_output
@@ -34,7 +34,7 @@ class MLP:
 
     # Backpropagation (Training)
     def backward(self, X, y, output):
-        """Calculate gradients and update weights/biases."""
+        # Calculate gradients and update weights/biases.
         error = y - output
         d_output = error * sigmoid_derivative(output)
         error_hidden = d_output.dot(self.weights_hidden_output.T)
@@ -47,7 +47,7 @@ class MLP:
         self.bias_hidden += np.sum(d_hidden, axis=0, keepdims=True) * self.learning_rate
 
     def train(self, X, y, epochs):
-        """Train the neural network for a fixed number of epochs."""
+        # Train the neural network for a fixed number of epochs.
         print(f"Starting training process for {epochs} cycles...")
 
         for i in range(epochs):
@@ -81,3 +81,4 @@ if __name__ == "__main__":
     for i in range(len(X)):
         pred_val = f"{final_output[i][0]:.4f}"
         print(f"{str(X[i]):<15} {str(y[i]):<10} {pred_val:<15}")
+
