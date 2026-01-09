@@ -1,29 +1,40 @@
 import numpy as np
 
+# Set the seed for reproducibility
 np.random.seed(1)
 
+# Activation function and its derivative
 def sigmoid(x):
+    """Sigmoid activation function to squash input between 0 and 1."""
     return 1 / (1 + np.exp(-x))
 
 def sigmoid_derivative(x):
+    """Derivative of sigmoid function used for backpropagation."""
     return x * (1 - x)
 
 class MLP:
+    # Initialize network parameters
     def __init__(self, input_size, hidden_size, output_size, learning_rate=0.1):
-        self.learning_rate = learning_rate
+        """Initialize weights and biases for the network."""
+        self.learning_rate = learning_rate # Learning rate
         self.weights_input_hidden = np.random.uniform(-1, 1, (input_size, hidden_size))
         self.bias_hidden = np.zeros((1, hidden_size))
         self.weights_hidden_output = np.random.uniform(-1, 1, (hidden_size, output_size))
         self.bias_output = np.zeros((1, output_size))
 
+    # Forward Propagation
     def forward(self, X):
+        """Calculate outputs by passing inputs through the network."""
         self.hidden_input = np.dot(X, self.weights_input_hidden) + self.bias_hidden
         self.hidden_output = sigmoid(self.hidden_input)
         self.final_input = np.dot(self.hidden_output, self.weights_hidden_output) + self.bias_output
         self.final_output = sigmoid(self.final_input)
+        
         return self.final_output
 
+    # Backpropagation (Training)
     def backward(self, X, y, output):
+        """Calculate gradients and update weights/biases."""
         error = y - output
         d_output = error * sigmoid_derivative(output)
         error_hidden = d_output.dot(self.weights_hidden_output.T)
@@ -36,15 +47,18 @@ class MLP:
         self.bias_hidden += np.sum(d_hidden, axis=0, keepdims=True) * self.learning_rate
 
     def train(self, X, y, epochs):
+        """Train the neural network for a fixed number of epochs."""
         print(f"Starting training process for {epochs} cycles...")
 
         for i in range(epochs):
             output = self.forward(X)
             self.backward(X, y, output)
+            
             if (i % 1000) == 0:
-                loss = np.mean(np.square(y - output))  # How wrong is the model?
-                print(f"Epoch {i}: Loss {loss:.6f}")  # We want Loss to go to 0
+                loss = np.mean(np.square(y - output))
+                print(f"Epoch {i}: Loss {loss:.6f}")
 
+# Main Execution
 if __name__ == "__main__":
     X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
     y = np.array([[0], [1], [1], [0]])
@@ -65,8 +79,5 @@ if __name__ == "__main__":
     print(f"{'Input':<15} {'Expected':<10} {'Predicted':<15}")
     print("-" * 45)
     for i in range(len(X)):
-        # We round the random numbers to make them readable strings
         pred_val = f"{final_output[i][0]:.4f}"
         print(f"{str(X[i]):<15} {str(y[i]):<10} {pred_val:<15}")
-        
-
