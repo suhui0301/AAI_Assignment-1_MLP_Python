@@ -44,7 +44,7 @@ This repository contains the complete implementation and documentation for the M
 * **Language:** Python
 * **Core Concepts:** Multi-Layer Perceptron (MLP), Backpropagation, Gradient Descent, Non-Linear Classification.
 * **Libraries:**<br>
-`math`: Used for the exponential function ($e^{-x}$) in Sigmoid calculations.
+`math`: Used for the exponential function ($e^{-x}$) in Sigmoid calculations.<br>
 `random`: Used for weight initialisation between -1 and 1 to break symmetry.<br>
 
 ---
