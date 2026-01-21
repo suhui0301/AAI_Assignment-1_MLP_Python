@@ -17,7 +17,7 @@ def sigmoid_derivative(output):
 class MLP:
     # Initialize network parameters
     def __init__(self, input_size, hidden_size, output_size, learning_rate=0.5):
-        """Initialize weights and biases for the network."""
+        # Initialize weights and biases for the network.
         self.learning_rate = learning_rate # Learning rate
         self.weights_input_hidden = [[random.uniform(-1, 1) for _ in range(hidden_size)] for _ in range(input_size)]
         self.weights_hidden_output = [[random.uniform(-1, 1) for _ in range(output_size)] for _ in range(hidden_size)]
@@ -120,4 +120,5 @@ if __name__ == "__main__":
         rounded = round(prediction)
         print(f"{str(inputs):<15} | {expected[0]:<8} | {prediction:.5f} ({rounded})")
     print("-" * 35)
+
 
