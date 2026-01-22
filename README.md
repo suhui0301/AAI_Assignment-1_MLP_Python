@@ -20,7 +20,7 @@ An Advanced Artificial Intelligence assignment focused on **Developing an MLP fr
 This repository contains the complete implementation and documentation for the MLP assignment focusing on the logic transformation from simple input to non-linear output.
 
 ### 1. Source Code: MLP from Scratch
-**File:** `UTM MECS1023 AAI Assignment 1 MLP Code - Lau Su Hui MEC245045 (No NumPy).py` in src folder
+**File:** `UTM MECS1023 AAI Assignment 1 MLP Code - Lau Su Hui MEC245045.py` in src folder
 * **Architecture:** 2-4-1 Topology (2 Input Nodes, 4 Hidden Nodes, 1 Output Node)
 * **Constraints:** Built using pure Python lists and the `math` library to handle matrix logic manually.
 * **Mechanism:** Implements Forward Propagation and Backpropagation with Gradient Descent.
@@ -28,7 +28,7 @@ This repository contains the complete implementation and documentation for the M
 
 
 ### 2. Project Report (Technical Analysis)
-**File:** `UTM MECS1023 AAI Assignment 1 MLP Report - Lau Su Hui MEC245045 (No NumPy).py` in report folder
+**File:** `UTM MECS1023 AAI Assignment 1 MLP Report - Lau Su Hui MEC245045.pdf` in report folder
 * **Theory:** Detailed explanation of the XOR problem and why a "Hidden Layer" is required for non-linear separation.
 * **Analysis:** Step-by-step breakdown of training results, including pre-training random guesses vs. post-training logic verification.
 
