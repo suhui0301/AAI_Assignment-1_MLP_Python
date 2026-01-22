@@ -74,6 +74,6 @@ The program will automatically cycle through three phases:
 
 The project demonstrates the mathematical journey of a neural network learning to "think" logically. Key Findings are shown below:
 * **Non-Linearity:** Proved that a single-layer perceptron cannot solve XOR; a hidden layer is mandatory.
-* **Learning Rate:** Optimized at 0.5 to ensure stable convergence without overshooting the global minimum.
+* **Learning Rate:** Optimised at 0.5 to ensure stable convergence without overshooting the global minimum.
 * **Precision:** Achieved high accuracy with final loss dropping to 0.001180, successfully mimicking the XOR truth table.
   
